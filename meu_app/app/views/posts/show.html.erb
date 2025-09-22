@@ -1,19 +1,19 @@
-<p style="color: green"><%= notice %></p>
+<div class="max-w-4xl mx-auto">
+  <div class="bg-white shadow rounded-lg p-6">
+    <div class="flex justify-between items-start mb-6">
+      <h1 class="text-2xl font-bold text-gray-800"><%= @post.title %></h1>
+      <span class="px-3 py-1 text-xs font-semibold rounded-full <%= @post.published ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800' %>">
+        <%= @post.published ? 'Publicado' : 'Rascunho' %>
+      </span>
+    </div>
 
-<%= render @post %>
+    <div class="prose max-w-none mb-6">
+      <p class="text-gray-700 leading-relaxed"><%= @post.body %></p>
+    </div>
 
-<div>
-  <%= link_to "Edit this post", edit_post_path(@post) %> |
-  <%= link_to "Back to posts", posts_path %>
-
-
-  <h2>Comments</h2>
-
-  <ul>
-    <% @post.comments.each do |comment |  %>
-      <li><%= comment.content %></li>
-    <% end %>
-  </ul>
-
-  <%= button_to "Destroy this post", @post, method: :delete %>
+    <div class="flex space-x-4 pt-6 border-t border-gray-200">
+      <%= link_to 'Editar', edit_post_path(@post), class: 'bg-yellow-500 hover:bg-yellow-600 text-white font-medium py-2 px-4 rounded-lg transition duration-200' %>
+      <%= link_to 'Voltar', posts_path, class: 'bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition duration-200' %>
+    </div>
+  </div>
 </div>
